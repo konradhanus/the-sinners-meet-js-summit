@@ -1,5 +1,6 @@
 import drawPlatforms from "./animate/drawPlatforms";
 import drawStats from "./animate/drawStats";
+import platformCollisionDetection from "./animate/platfromCollisionDetection";
 
 let frameCount = 0;
 let time = 0;
@@ -8,6 +9,7 @@ let FPS = 0;
 function animateLoop({background, platforms, player, stats}){
 
     background && background.draw();
+    platformCollisionDetection(platforms, player);
     drawPlatforms(platforms);
     player && player.update();
 
