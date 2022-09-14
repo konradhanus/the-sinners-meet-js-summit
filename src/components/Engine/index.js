@@ -4,7 +4,7 @@ import setCanvasSizeAsWindow from './helpers/setCanvasSizeAsWindow';
 import init from './init';
 import animateLoop from './animateLoop';
 
-function Engine({ hero }) {
+function Engine({ hero, level }) {
 
     console.log('Selected hero', hero);
 
@@ -27,7 +27,7 @@ function Engine({ hero }) {
             setCanvasSizeAsWindow(canvas);
         })
 
-        init(canvas, ctx, state);
+        init(canvas, ctx, level, state);
     });
 
 

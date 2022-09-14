@@ -1,6 +1,8 @@
+import drawPlatforms from "./animate/drawPlatforms";
+
 function animateLoop({background, platforms}){
     background && background.draw();
-    platforms && platforms[0].draw();
+    drawPlatforms(platforms);
 }
 
 export default animateLoop;

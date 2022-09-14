@@ -6,6 +6,7 @@ import barbarian from '../../assets/characters/barbarian/barbarian_1.png';
 import soldier from '../../assets/characters/wizard/wizard_1.png';
 import wizard from '../../assets/characters/soldier/soldier.png';
 import packageJson from '../../../package.json';
+import level from './../Levels/level';
 
 const HEROES = { BARBARIAN: 1, WIZARD: 2, WARRIOR: 3 }
 
@@ -13,13 +14,16 @@ const NewGame = () => {
     const [newGame, setNewGame] = useState(false);
     const [hero, setHero] = useState(HEROES.BARBARIAN);
     const [isSelectedHero, setIsSelectedHero] = useState(false);
+    const [selectedLevel, setLevel] = useState();
 
     const selectHero = (hero) => {
-        setHero(hero); setNewGame(true);
+        setLevel(level)
+        setHero(hero); 
+        setNewGame(true);
     }
 
     return (newGame ?
-        <Engine hero={hero} /> : <>
+        <Engine hero={hero} level={selectedLevel} /> : <>
             <div className="background">
                 <div className="center ">
                     <center>
@@ -34,8 +38,8 @@ const NewGame = () => {
                             </div>
                             <div className="menu">
                                 <button className="menu-item" onClick={() => { selectHero(HEROES.BARBARIAN); }} alt="Barbarian">Barbarian </button>
-                                <button className="menu-item" onClick={() => { selectHero(HEROES.WIZARD); }} alt="Wizard"> Wizard</button>
-                                <button className="menu-item" onClick={() => { selectHero(HEROES.WARRIOR); }} alt="Warrior">Warrior </button>
+                                <button className="menu-item" onClick={() => { selectHero(HEROES.WIZARD);  }} alt="Wizard"> Wizard</button>
+                                <button className="menu-item" onClick={() => { selectHero(HEROES.WARRIOR);  }} alt="Warrior">Warrior </button>
                             </div></> :
                         <center>
                             <div><button onClick={() => { setIsSelectedHero(true) }}>NEW GAME </button></div>
