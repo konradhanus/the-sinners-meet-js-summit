@@ -1,8 +1,8 @@
-function drawStats(stats, FPS, player){
+function drawStats(stats, FPS, player, keys){
     stats && stats.draw(`${FPS} fps`,
-    `position x: ${player.position.x}`,
-    `position y: ${player.position.y}`,
-    ``,
+    `velocity: ${player.velocity.y}`,
+    `right ${keys.right.pressed}`,
+    `up ${keys.up.pressed}, onFly ${keys.up.onFly}`,
   );
 }
 
