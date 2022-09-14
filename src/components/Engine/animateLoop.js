@@ -9,7 +9,7 @@ function animateLoop({background, platforms, player, stats}){
 
     background && background.draw();
     drawPlatforms(platforms);
-    player && player.draw();
+    player && player.update();
 
 
     if(performance.now() - time >= 500)

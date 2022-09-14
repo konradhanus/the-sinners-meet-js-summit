@@ -1,3 +1,4 @@
+import { gravity } from "../../../config";
 export default class Player{
     constructor(ctx, canvas, image, blockWidth){
         this.defaultPostion = {
@@ -12,6 +13,11 @@ export default class Player{
             x: this.defaultPostion.x, 
             y: this.defaultPostion.y
         }
+
+        this.velocity = {
+            x:0, 
+            y:0
+        }
         
         this.width = blockWidth;
         this.height = blockWidth;
@@ -25,5 +31,20 @@ export default class Player{
 
     draw() {
         this.c.drawImage(this.currentSprite, 10, 10, 40,40, this.position.x, this.position.y, this.width, this.height)
+    }
+
+    update() {
+        this.frame++;
+        this.draw();
+        this.position.y += this.velocity.y
+        this.position.x += this.velocity.x
+
+        if(this.position.y + 
+           this.height + 
+           this.velocity.y <= this.canvas.height
+        )
+        {
+            this.velocity.y += gravity
+        }
     }
 }
