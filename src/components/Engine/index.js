@@ -9,6 +9,7 @@ function Engine({ hero, level }) {
     const [platforms, setPlatforms] = useState();
     const [background, setBackground] = useState();
     const [player, setPlayer] = useState();
+    const [stats, setStats] = useState();
 
     const state = {
         platforms, 
@@ -16,7 +17,9 @@ function Engine({ hero, level }) {
         background, 
         setBackground, 
         player, 
-        setPlayer
+        setPlayer,
+        stats, 
+        setStats, 
     }
 
     // Run only once when component did mount
