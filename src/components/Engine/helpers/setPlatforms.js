@@ -19,7 +19,6 @@ function setPlatforms(level, ctx, canvas) {
         }
         })
     )).flatMap(n=>n).filter(f=>f!=undefined);
-        console.log(levelPlatforms);
   return levelPlatforms;
 }
 

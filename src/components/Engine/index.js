@@ -6,16 +6,17 @@ import animateLoop from './animateLoop';
 
 function Engine({ hero, level }) {
 
-    console.log('Selected hero', hero);
-
     const [platforms, setPlatforms] = useState();
     const [background, setBackground] = useState();
+    const [player, setPlayer] = useState();
 
     const state = {
         platforms, 
         setPlatforms, 
         background, 
-        setBackground
+        setBackground, 
+        player, 
+        setPlayer
     }
 
     // Run only once when component did mount
@@ -27,7 +28,7 @@ function Engine({ hero, level }) {
             setCanvasSizeAsWindow(canvas);
         })
 
-        init(canvas, ctx, level, state);
+        init(canvas, ctx, level, hero, state);
     });
 
 

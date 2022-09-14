@@ -2,14 +2,17 @@ import createImage from "./helpers/createImage";
 import Background from "./objects/Background";
 import background from '../../assets/background.png';
 import setPlatforms from "./helpers/setPlatforms";
+import setPlayer from "./helpers/setPlayer";
 
-function init(canvas, ctx, level, state) {
+function init(canvas, ctx, level, hero, state) {
 
     const platforms = setPlatforms(level, ctx, canvas);
     const bg = new Background(ctx, canvas, 0, 0, createImage(background));
+    const player = setPlayer(hero, ctx, canvas )
 
     state.setPlatforms(platforms)
     state.setBackground(bg);
+    state.setPlayer(player);
 
 }
 
