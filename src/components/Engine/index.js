@@ -9,10 +9,13 @@ function Engine({ hero }) {
     console.log('Selected hero', hero);
 
     const [platforms, setPlatforms] = useState();
+    const [background, setBackground] = useState();
 
     const state = {
         platforms, 
-        setPlatforms
+        setPlatforms, 
+        background, 
+        setBackground
     }
 
     // Run only once when component did mount

@@ -3,6 +3,8 @@ import createImage from "./helpers/createImage";
 import getTileImage from './helpers/getTileImage';
 import { BLOCK } from './helpers/blockType';
 import { blockWidth } from '../../config';
+import Background from "./objects/Background";
+import background from '../../assets/background.png';
 
 function init(canvas, ctx, state) {
     const colId = 1;
@@ -19,7 +21,11 @@ function init(canvas, ctx, state) {
         blockWidth, 
         block);
 
+    const bg = new Background(ctx, canvas, 0, 0, createImage(background));
+
     state.setPlatforms([platform])
+    state.setBackground(bg);
+
 
 }
 
