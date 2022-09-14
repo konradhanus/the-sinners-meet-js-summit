@@ -16,7 +16,7 @@ const playerMovement = (keys, player, playerSpeed) => {
         player.velocity.x = 0;
     }
 
-    if (player.velocity.y === 1.5) {
+    if (player.velocity.y === 0) {
         keys.up.onFly = false;
       }
 }

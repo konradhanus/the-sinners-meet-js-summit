@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import useCanvas from './hooks/useCanvas';
 import setCanvasSizeAsWindow from './helpers/setCanvasSizeAsWindow';
 import init from './init';
-import animateLoop from './animateLoop';
+import startAnimating from './animateLoop';
 import userKeyDownPress from './helpers/userKeyDownPress';
 import userKeyUpPress from './helpers/userKeyUpPress';
 import useEventListener from './hooks/useEventListener';
@@ -45,7 +45,8 @@ const Engine = ({ level, hero }) => {
 
     const startGame = new Promise((resolve) => { resolve(); });
     startGame.then(()=>{
-        animateLoop(state, keys);
+        const FPS = 60;
+        player && startAnimating(FPS, state, keys);
     });
 
     return <canvas ref={canvasRef} style={{backgroundColor: 'grey'}} />
