@@ -28,9 +28,9 @@ const NewGame = () => {
                     {isSelectedHero ?
                         <>
                             <div className="menu">
-                                <img className="menu-item" src={barbarian} width="150" />
-                                <img className="menu-item" src={soldier} width="150" />
-                                <img className="menu-item" src={wizard} width="150" />
+                                <img className="menu-item" src={barbarian} width="150" alt="barbarian" />
+                                <img className="menu-item" src={soldier} width="150" alt="soldier" />
+                                <img className="menu-item" src={wizard} width="150" alt="wizzard" />
                             </div>
                             <div className="menu">
                                 <button className="menu-item" onClick={() => { selectHero(HEROES.BARBARIAN); }} alt="Barbarian">Barbarian </button>
