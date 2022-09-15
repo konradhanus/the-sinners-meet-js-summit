@@ -3,9 +3,11 @@ import drawStats from "./animate/drawStats";
 import platformCollisionDetection from "./animate/platfromCollisionDetection";
 import playerMovement from "./animate/playerMovement";
 import { playerSpeed } from '../../config';
+import parallaxEffect from './animate/parallaxEffect';
 
 let frameCount = 0;
 let fpsInterval, startTime, now, then, elapsed;
+let scrollOffset = 0;
 
 function startAnimating(fps, state, keys) {
   fpsInterval = 1000 / fps;
@@ -36,7 +38,7 @@ function animateLoop({background, platforms, player, stats}, keys){
       player && player.update();
       platforms && platformCollisionDetection(platforms, player);
       drawPlatforms(platforms);
-      player && playerMovement(keys, player, playerSpeed, platforms);
+      player && background && platforms && playerMovement(keys, player, playerSpeed, platforms, background, scrollOffset);
 
       drawStats(stats, currentFps, player, keys);
     }
